@@ -1,3 +1,4 @@
 theme: jekyll-theme-slate
 title: East Monster 的个人主页
 description: Welcome to East Monster's Github Page!
+markdown: kramdown
