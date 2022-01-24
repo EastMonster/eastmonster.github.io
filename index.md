@@ -11,4 +11,4 @@
 </head>
 Test Test Test
 $How about some \latex ?$  
-$e = m c^2$
+$ e = m c^2 $
