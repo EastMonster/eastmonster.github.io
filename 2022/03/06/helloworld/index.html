@@ -24,7 +24,7 @@
 <meta property="og:description" content="数学相关 1. 裴蜀定理 \(\small\text{(Bézout&#39;s Identity)}\) 设 \(a, b\) 是不全为零的整数，则存在整数 \(x, y\)，使得 \[ ax+by&#x3D;\gcd(a,b) \] ### 2. 扩展欧几里得算法 对于式子 \[ \begin{aligned} ax_1+by_1&amp;&#x3D;\gcd(a,b)\\ bx_2+(a\bmo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-06T10:05:53.000Z">
-<meta property="article:modified_time" content="2022-03-06T10:19:21.390Z">
+<meta property="article:modified_time" content="2022-03-06T10:20:45.601Z">
 <meta property="article:author" content="East Monster">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -418,6 +418,12 @@ class="math inline">\(a^{-1}\)</span>。</p>
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -648,6 +654,44 @@ class="math inline">\(a^{-1}\)</span>。</p>
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
