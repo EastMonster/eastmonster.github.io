@@ -19,12 +19,12 @@
     <meta name="description" content="对 3b1b 机器学习视频的简单笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习基本原理笔记">
-<meta property="og:url" content="https://eastmonster.github.io/2022/03/12/3b1b-ml-note-1/index.html">
+<meta property="og:url" content="https://eastmonster.github.io/2022/03/18/3b1b-ml-note-1/index.html">
 <meta property="og:site_name" content="East Monster 个人博客">
 <meta property="og:description" content="对 3b1b 机器学习视频的简单笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-12T09:09:34.000Z">
-<meta property="article:modified_time" content="2022-03-12T11:05:14.336Z">
+<meta property="article:published_time" content="2022-03-18T07:09:34.000Z">
+<meta property="article:modified_time" content="2022-03-18T07:01:35.759Z">
 <meta property="article:author" content="East Monster">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -202,8 +202,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-12 17:09" pubdate>
-          2022年3月12日 下午
+        <time datetime="2022-03-18 15:09" pubdate>
+          2022年3月18日 下午
         </time>
       </span>
     
@@ -261,20 +261,20 @@ class="math inline">\(\text{(MLP)}\)</span>。</p>
 <p>  在每一层的神经网络之间，需要计算权重值，但我们希望权重值始终落在
 <span class="math inline">\([0,1]\)</span> 的区间内，所以引入 <span
 class="math inline">\(\text{Sigmoid}\)</span> 函数： <span
-class="math display">\[ \sigma(x)=\frac{1}{1+e^{-x}} \]</span>
-  这个函数可以很完美地将一条数轴压缩进 <span
+class="math display">\[ \sigma(x)=\frac{1}{1+e^{-x}} \]</span></p>
+<p>  这个函数可以很完美地将一条数轴压缩进 <span
 class="math inline">\([0,1]\)</span>
 的区间内。在计算一个神经元的<strong>激活值</strong> <span
 class="math inline">\(\text{(activation)}\)</span>
-时，使用该函数即可。<br />
-  有时，我们可能希望在一定的条件下才让神经元激发，例如当权重值大于 <span
-class="math inline">\(10\)</span> 时激发，此时我们把权重结果减去 <span
-class="math inline">\(10\)</span> 再用 <span
+时，使用该函数即可。</p>
+<p>  有时，我们可能希望在一定的条件下才让神经元激发，例如当权重值大于
+<span class="math inline">\(10\)</span> 时激发，此时我们把权重结果减去
+<span class="math inline">\(10\)</span> 再用 <span
 class="math inline">\(\text{Sigmoid}\)</span>
 函数处理即可。这个附加的数叫做<strong>偏置</strong> <span
-class="math inline">\((\text{bias})\)</span>。<br />
-  除去第一层神经网络，后续的每一层中的每一个神经元都与上一层的所有神经元相连，每一条"连线"附带一个权重，该层的每一个神经元也附带一个偏置。机器学习的过程，其实也可以看成如何让计算机找到正确的权重和偏置的过程。<br />
-  如何计算激活值呢？例如，隐藏层中第一层第一个神经元的激活值应该这样计算：
+class="math inline">\((\text{bias})\)</span>。</p>
+<p>  除去第一层神经网络，后续的每一层中的每一个神经元都与上一层的所有神经元相连，每一条"连线"附带一个权重，该层的每一个神经元也附带一个偏置。机器学习的过程，其实也可以看成如何让计算机找到正确的权重和偏置的过程。</p>
+<p>  如何计算激活值呢？例如，隐藏层中第一层第一个神经元的激活值应该这样计算：
 <span class="math display">\[ a_0^{(1)} = \sigma \left(
 {\color{green}{\begin{bmatrix}
 w_{0,0} &amp;w_{0,1} &amp;\cdots &amp;w_{0,n}\\
@@ -294,11 +294,31 @@ class="math inline">\(i\)</span> 个神经元；最左侧的矩阵的第 <span
 class="math inline">\(n\)</span>
 行中的元素就是上一层中所有神经元和这一层第 <span
 class="math inline">\(n\)</span> 个神经元间所有连线的权重；<span
-class="math inline">\(b\)</span> 代表偏置。<br />
-  计算公式可以简记为 <span class="math display">\[
+class="math inline">\(b\)</span> 代表偏置。</p>
+<p>  计算公式可以简记为 <span class="math display">\[
 \mathbf{a}^{(1)}=\sigma{({\color{green}{\mathbf{W}}}\mathbf{a}+{\color{skyblue}{\mathbf{b}}})}
 \]</span></p>
 <h3 id="二梯度下降法">二、梯度下降法</h3>
+<p>  为了提高网络的可靠度，我们需要一种方法来修改网络中的权重与偏置值以达到目的。这<em>有些</em>
+像求一个函数的最小值。</p>
+<p>  定义<strong>代价/损失</strong> <span
+class="math inline">\(\text{(Loss/Cost)}\)</span>为<strong>各神经元输出的激活值与期望值之间的差的平方和</strong>。显然，当网络能给出正确的结果时，代价值最小。我们希望代价可以降到最低，即求得代价的最小值。我们使用从训练样本中获得的代价的平均值
+(平均代价，或<strong>经验风险</strong><span
+class="math inline">\(\text{(Empirical
+Risk)}\)</span>)来评价网络有多“糟糕”。</p>
+<p>  对一元函数来说，求函数的最小值可以这样做： -
+任意选定一点。若这一点的导数为正，就往左走；若为负，就往有走。 -
+如果走的“步长”与斜率成比例，那么在接近最小值的时候步长就会越来越小，避免走过头。
+-
+一直循环直到每步步长小于某个常数，该点一定处于函数的某个局部最小值附近。</p>
+<p>  那么对于二元函数来说，找最小值可以看作小球滚下山的过程。在某一点沿着哪个方向小球能最快地滚下山呢？没错，就是该点的梯度方向的反方向，即<span
+class="math inline">\(-\nabla
+C(x,y)\)</span>。代价函数，一个参数非常多的函数，也可以这样处理。</p>
+<p>  梯度下降法即为下列所述： - 将所有的权重和偏置放到一个列向量 <span
+class="math inline">\(\vec{w}\)</span> 中，那么代价函数的负梯度 <span
+class="math inline">\(-\nabla C(\vec{w})\)</span>
+也是一个向量，它指出了具体如何改变每一项参数，才可以让代价函数的值下降得最快。</p>
+<h3 id="三反向传播">三、反向传播</h3>
 
               
             </div>
@@ -351,7 +371,7 @@ class="math inline">\(b\)</span> 代表偏置。<br />
   <div class="license-box my-3">
     <div class="license-title">
       <div>机器学习基本原理笔记</div>
-      <div>https://eastmonster.github.io/2022/03/12/3b1b-ml-note-1/</div>
+      <div>https://eastmonster.github.io/2022/03/18/3b1b-ml-note-1/</div>
     </div>
     <div class="license-meta">
       
@@ -363,7 +383,7 @@ class="math inline">\(b\)</span> 代表偏置。<br />
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年3月12日</div>
+          <div>2022年3月18日</div>
         </div>
       
       
@@ -393,18 +413,12 @@ class="math inline">\(b\)</span> 代表偏置。<br />
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/12/turning-red/" title="《青春变形记》观后感">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《青春变形记》观后感</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/07/hello-world/" title="Hello, World!">
-                        <span class="hidden-mobile">Hello, World!</span>
+                      <a href="/2022/03/13/pytorch-coms-1/" title="PyTorch 语句集合">
+                        <span class="hidden-mobile">PyTorch 语句集合</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
