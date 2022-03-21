@@ -44,6 +44,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -79,7 +81,11 @@
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
@@ -253,7 +259,8 @@
             
             <div class="markdown-body">
               
-              <p>East Monster 的 Hexo 小站今天建起来了！😏 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cout &lt;&lt; <span class="hljs-string">&quot;Hello, World!\n&quot;</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></p>
+              <p>East Monster 的 Hexo 小站今天建起来了！😏</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cout &lt;&lt; <span class="hljs-string">&quot;Hello, World!\n&quot;</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
               
             </div>
@@ -404,7 +411,6 @@
 
   
   
-
 
 
 
@@ -638,44 +644,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

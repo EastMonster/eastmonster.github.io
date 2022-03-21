@@ -24,12 +24,12 @@
 <meta property="og:description" content="小记一下学到的 PyTorch 知识">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-13T14:23:41.000Z">
-<meta property="article:modified_time" content="2022-03-13T14:29:06.926Z">
+<meta property="article:modified_time" content="2022-03-19T07:59:24.388Z">
 <meta property="article:author" content="East Monster">
 <meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="PyTorch">
-<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -44,6 +44,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -80,7 +82,11 @@
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
@@ -255,11 +261,12 @@
             <div class="markdown-body">
               
               <blockquote>
-<p>在零基础的背景下看 PyTorch
-以及一大堆前置知识真是令人头大...很想放弃但又不能放弃。还是在这里小记一下学到的一些东西，激励、督促一下自己。</p>
+<p>在零基础的背景下看 PyTorch 以及一大堆前置知识真是令人头大…很想放弃但又不能放弃。还是在这里小记一下学到的一些东西，激励、督促一下自己。</p>
 </blockquote>
-<h3 id="一基本运算">一、基本运算</h3>
-<p>  在 PyTorch 中，(未完待续)</p>
+<h3 id="一-基本运算"><a class="markdownIt-Anchor" href="#一-基本运算"></a> 一、基本运算</h3>
+<ol>
+<li>张量生成</li>
+</ol>
 
               
             </div>
@@ -301,11 +308,11 @@
       
         <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">#机器学习</a>
       
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
         <a href="/tags/Python/">#Python</a>
       
         <a href="/tags/PyTorch/">#PyTorch</a>
-      
-        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
       
     </div>
   
@@ -429,7 +436,6 @@
 
   
   
-
 
 
 
@@ -663,44 +669,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
