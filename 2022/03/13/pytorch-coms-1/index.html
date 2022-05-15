@@ -24,7 +24,7 @@
 <meta property="og:description" content="小记一下学到的 PyTorch 知识">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-13T14:23:41.000Z">
-<meta property="article:modified_time" content="2022-04-10T14:24:27.008Z">
+<meta property="article:modified_time" content="2022-04-13T08:16:23.364Z">
 <meta property="article:author" content="East Monster">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Python">
@@ -260,14 +260,13 @@
             
             <div class="markdown-body">
               
-              <blockquote>
-<p>在零基础的背景下看 PyTorch 以及一大堆前置知识真是令人头大…很想放弃但又不能放弃。还是在这里小记一下学到的一些东西，激励、督促一下自己。</p>
-</blockquote>
-<h3 id="一-基本运算"><a class="markdownIt-Anchor" href="#一-基本运算"></a> 一、基本运算</h3>
+              <h3 id="一-张量"><a class="markdownIt-Anchor" href="#一-张量"></a> 一、张量</h3>
+<h4 id="a-创建张量"><a class="markdownIt-Anchor" href="#a-创建张量"></a> a. 创建张量</h4>
+<h5 id="i-直接创建"><a class="markdownIt-Anchor" href="#i-直接创建"></a> I. 直接创建</h5>
 <ol>
-<li>张量生成</li>
+<li><code>torch.rand(x, y)</code><br />
+生成一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 列的，值为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[0,1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 的张量。</li>
 </ol>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mi>T</mi><mi>S</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">TTST</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span></p>
 
               
             </div>

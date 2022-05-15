@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://eastmonster.github.io/images/digital-logic/c64.png">
 <meta property="og:image" content="https://eastmonster.github.io/images/digital-logic/c65.png">
 <meta property="article:published_time" content="2022-03-31T09:10:53.000Z">
-<meta property="article:modified_time" content="2022-04-10T14:25:03.147Z">
+<meta property="article:modified_time" content="2022-05-15T05:44:04.563Z">
 <meta property="article:author" content="East Monster">
 <meta property="article:tag" content="数字逻辑">
 <meta property="article:tag" content="笔记">
@@ -460,8 +460,9 @@ f_2(a,b,c)=&amp;(a+b+c)(b&#x27;+c&#x27;)(a&#x27;+c&#x27;)\\
 <p><img src="/images/digital-logic/dontcare1.png" srcset="/img/loading.gif" lazyload alt="对于 EX-3 BCD 码来说，一些取值就永远不会出现。" /></p>
 <h3 id="六-nand-与-nor-逻辑"><a class="markdownIt-Anchor" href="#六-nand-与-nor-逻辑"></a> 六、NAND 与 NOR 逻辑</h3>
 <p>  运用德摩根定律，可以化简一些开关方程，使其更容易理解。<br />
-<img src="/images/digital-logic/c61.png" srcset="/img/loading.gif" lazyload alt="实际上，把两条连线两端的”泡泡“去掉，可以得到同样的结果。" /><br />
+<img src="/images/digital-logic/c61.png" srcset="/img/loading.gif" lazyload alt="实际上，把两条连线两端的&quot;泡泡&quot;(在脑海中)去掉，可以得到同样的结果。" /><br />
   NAND 的符号与 NOR 的符号可以互换。<br />
+  定义“匹配”为线的两端都有“泡泡”，“不匹配”则相反。在互换之后，每条线(也许，除了与输入端直接相连的线)都应该处于匹配的状态，这样才便于化简方程。对于两个元件之间所有连接线都有“泡泡”的情况下，应该是在脑海中 (mentally) 把它忽略掉，而不是真的就把它去掉。不然的话元件都不属于 NAND 或 NOR 了。<br />
 <img src="/images/digital-logic/c62.png" srcset="/img/loading.gif" lazyload alt="(图 1) 在更换前，计算过程非常复杂。" /><br />
 <img src="/images/digital-logic/c63.png" srcset="/img/loading.gif" lazyload alt="(图 1) 在更换后，计算过程变得更直观。" /><br />
 <img src="/images/digital-logic/c64.png" srcset="/img/loading.gif" lazyload alt="(图 2) 在更换前，计算过程非常复杂。" /><br />
